@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    Get the last 50 Question from stackoverflow
+</p>
+<button type="button" value="Get Data" onclick="GetData()">Get Data</button>
+
+<br /><br /><br />
+
+<div  >
+    <table class="table">
+
+        <tr>
+            <th>
+                Question
+            </th>
+            <th>
+                Link
+            </th>
+        <tbody id="data">
+        </tbody>
+    </table>
+</div>
+
+<script type="text/javascript">
+    function GetData() {
+
+        $.ajax({
+
+            type: "GET",
+            url: "https://api.stackexchange.com/2.3/questions?page=1&pagesize=50&order=desc&sort=activity&site=stackoverflow",
+            success: function (data) { 
+                console.log(data);
+                var rows = "";
+                $.each(data.items, function () {
+                    rows = rows + "<tr><td>" + this.title + "</td> <td><a href='/Question/Details?id=" + 75188278 +"'>Details</a> </td></tr>";
+                });
+                $('#data').html(rows);
+                console.log(rows);
+            },
+            error: function (e, ts, et) {
+                alert(ts);
+            }
+        });
+
+    }
+</script>

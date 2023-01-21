@@ -1,0 +1,4 @@
+C:\Users\alson\source\repos\LibraryBookSystem\WebApplication1\WebApplication1\obj\Debug\LibrarySystemOLD.csproj.AssemblyReference.cache
+C:\Users\alson\source\repos\LibraryBookSystem\WebApplication1\WebApplication1\obj\Debug\LibrarySystemOLD.csproj.CoreCompileInputs.cache
+C:\Users\alson\source\repos\LibraryBookSystem\WebApplication1\WebApplication1\obj\Debug\LibrarySystem.dll
+C:\Users\alson\source\repos\LibraryBookSystem\WebApplication1\WebApplication1\obj\Debug\LibrarySystem.pdb

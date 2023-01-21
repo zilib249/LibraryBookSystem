@@ -1,0 +1,74 @@
+﻿
+@{
+    ViewBag.Title = "Details";
+    var id = Context.Request.QueryString["id"];
+}
+
+<h2>Question Details</h2>
+
+<hr />
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            title
+        </dt>
+
+        <dd id="title">
+        </dd> 
+
+        <dt>
+            Answer count
+        </dt>
+
+        <dd id="answer_count">
+
+        </dd>
+
+        <dt>
+            Is Answered
+        </dt>
+
+        <dd id="is_answered">
+
+        </dd>
+
+        <dt>
+            User
+        </dt>
+
+        <dd id="display_name">
+
+        </dd>
+        <dt>
+            Link
+        </dt>
+
+        <dd id="Link">
+
+        </dd>
+
+    </dl>
+</div>
+
+
+@Scripts.Render("~/bundles/jquery")
+<script type="text/javascript">
+    window.addEventListener('load', function (event) {
+     $.ajax({
+            type: "GET",
+            url: "https://api.stackexchange.com/2.3/questions/@id?order=desc&sort=activity&site=stackoverflow",
+            success: function (data) {
+                console.log(data);
+                $('#title').html(data.items[0].title); 
+                $('#answer_count').html(data.items[0].answer_count);
+                $('#is_answered').html(data.items[0].is_answered.toString());
+                $('#display_name').html(data.items[0].owner.display_name);
+                $('#Link').html("<a href='" + data.items[0].link +"'>Stackoverflow Link</a>"  );
+            },
+            error: function (e, ts, et) {
+                alert(ts);
+            }
+        }); 
+    });
+</script>
